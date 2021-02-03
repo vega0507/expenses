@@ -80,7 +80,7 @@ const AgregarGasto = (props) =>{
               </Grid>
               <Grid item xs={3}>
                   <Button variant="contained" color="primary" onClick={guardar}>
-                    Add ${REACT_APP_VIO_NAME}
+                    Add {process.env.REACT_APP_VIO_NAME}
                   </Button>
               </Grid>
               <Grid item xs={12}><br/><br/></Grid>
