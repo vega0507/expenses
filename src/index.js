@@ -1,17 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import theme from './theme/theme';
+import { ThemeProvider} from '@material-ui/core/styles';
+
+import Paper from '@material-ui/core/Paper';
+
+import {BrowserRouter as Router} from 'react-router-dom';
+//Rutas 
+import { Route, Switch  } from 'react-router-dom';
+import Detalle from './components/detalle/Detalle';
+import AdminMain from './components/Admin/AdminMain';
+
+//Redux
+import reducers from './reducers';
+import { Provider } from 'react-redux';
+import { createStore, compose } from 'redux';
+
+const componseEnhancers= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
+const store = createStore(reducers,componseEnhancers());
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+  <Router>
+  <ThemeProvider theme={theme}>
+    <Paper style={{height:"100vh", width:"100%"}}>
+      
+      <Switch>
+          <Route path="/" exact component={App}/>
+          <Route path="/detalle" exact component={Detalle}/>
+          <Route path="/admin" exact component={AdminMain}/>
+        </Switch>
+    </Paper>
+  </ThemeProvider>  
+  </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//npm install recharts
