@@ -9,7 +9,7 @@ const theme = createMuiTheme({
       
       type:'light',
       primary: {
-        main: grey[900],        
+        main: green[900],//grey[900],        
         contrastText: '#fff',
       },
       secondary: {
@@ -40,22 +40,22 @@ const theme = createMuiTheme({
     },
     //revisar este : 
     overrides: {      
-      MuiInput: {
+      /*MuiInput: {
         root: {
           color: 'white',
           
         }
-      },
+      },*/
       MuiPaper:{        
         root : {
           //backgroundColor: indigo[900], //'linear-gradient(70deg, rgba(95,120,247,1) 4%, rgba(137,136,232,0.8883928571428571) 41%)', //green[50],   
-          background: 'linear-gradient(70deg, rgba(95,120,247,1) 10%, rgba(26,35,126,1) 41%)',
+          //background: 'linear-gradient(70deg, rgba(95,120,247,1) 10%, rgba(26,35,126,1) 41%)',
         },        
       },    
-      MuiCard:{        
+      /*MuiCard:{        
         root: {
                    
-          /* glass*/
+          /* glass*
           color: '#FFFFFF', //'#000000', //color del texto 
           borderRadius: '18px', //curva de las tarjetas
           padding: '5px',  //espacio de los bordes a la tarjeta
@@ -65,7 +65,7 @@ const theme = createMuiTheme({
           backdropFilter: 'blur(40px)'
     
         }          
-      },     
+      },  */   
     },
   });
 

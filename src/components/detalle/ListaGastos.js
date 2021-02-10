@@ -11,6 +11,7 @@ import { seleccionarCategoria, loadExpensesListFromStorage } from '../../actions
 import { connect } from 'react-redux';
 import useStyles from '../../theme/Estilos';
 import Card from '@material-ui/core/Card';
+import TablePagination from '@material-ui/core/TablePagination';
 /*const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 450,
@@ -25,19 +26,26 @@ import Card from '@material-ui/core/Card';
 function BasicTable(props) {
   const classes = useStyles();
   const [rows, setRows] = useState([]);
+  const [page, setPage] = React.useState(0);
+  
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   var rubro = props.selectedExpense.expenseType;  
-    /*useEffect(()=>{
-        
-        const datos =  props.gastos; 
-        rubro= props.selectedExpense.expenseType;
-        props.loadExpensesListFromStorage();
-        
-    },[]);*/
+   
+
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   return (
-    <Card className={classes.card}>
-    <TableContainer className={classes.table}>
-      <Table className={classes.table} aria-label="simple table">
+    <Card style={{height: '560px', width: "725px"}}>
+    <TableContainer style={{height:'560px', overflow: 'auto'}}>
+      <Table aria-label="simple table" >
         <TableHead>
           <TableRow >
             <TableCell className={classes.tableHeader}>Gasto</TableCell>
@@ -45,7 +53,7 @@ function BasicTable(props) {
             <TableCell className={classes.tableHeader}>%</TableCell>            
           </TableRow>
         </TableHead>
-        <TableBody> 
+        <TableBody > 
           { props.gastos[rubro] !== undefined && 
             props.gastos[rubro] !==null  ? props.gastos[rubro].map((row, index) => (
             <TableRow key={index}>
@@ -59,6 +67,15 @@ function BasicTable(props) {
         </TableBody>
       </Table>
     </TableContainer>
+    <TablePagination
+          rowsPerPageOptions={[10]}
+          component="div"
+          count={10}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onChangePage={handleChangePage}
+          onChangeRowsPerPage={handleChangeRowsPerPage}
+        />
     </Card>
   );
 }

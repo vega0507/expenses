@@ -1,34 +1,30 @@
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles( theme => ({    
     cardHeaderColor: {      
-        //backgroundColor: theme.palette.primary.main,           
-        fontSize: 15, color: theme.palette.common.white
+        backgroundColor: theme.palette.primary.main,           
+        color: theme.palette.common.white,
+        height: '15px'
       },
       table: {
         minWidth: 450,    
       },
       tableHeader:{
-        //backgroundColor: theme.palette.primary.main,
-        //color: theme.palette.common.white,
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.common.white,
         fontSize: 14,
-        color: theme.palette.common.white, 
+        //color: theme.palette.common.black, 
         //borderStyle: 'solid',        
         //borderWidth: '0px 1px 1px 1px',
-        borderColor: theme.palette.common.white,       
+        borderColor: theme.palette.common.black,       
       },
       tableCell:{
-        borderStyle: 'solid',        
-        borderWidth: '0px 0px 1px 0px',
-        borderColor: theme.palette.common.white,  
-        color: theme.palette.common.white,      
+        //borderStyle: 'solid',        
+        //borderWidth: '0px 0px 1px 0px',
+        borderColor: theme.palette.common.black,  
+        color: theme.palette.common.black,      
         overflow: 'hidden',
       },
-      cardHeader:{
-        color: theme.palette.common.white,  
-        fontStyle: 'italic',
-        borderStyle: 'solid',        
-        borderWidth: '0px 0px 1px 0px',
-      },
+      
       card:{
         borderStyle: 'inset',        
         //borderWidth: '1px 0px 3px 4px',

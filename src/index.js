@@ -25,7 +25,7 @@ ReactDOM.render(
   <Provider store={store}>
   <Router>
   <ThemeProvider theme={theme}>
-    <Paper style={{height:"100vh", width:"100%"}}>
+    <Paper style={{height:"100vh", width:"100%", background: 'linear-gradient(70deg, rgba(95,120,247,1) 10%, rgba(26,35,126,1) 41%)'}}>
       
       <Switch>
           <Route path="/" exact component={App}/>

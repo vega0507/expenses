@@ -50,15 +50,25 @@ const AgregarGasto = (props) =>{
     }*/
     props.agregarGasto(gasto);
   }
+
+  const [raised,setRaised] = useState(false); 
+    const toggleRaised = () => setRaised(!raised);
     return(
-      <Card className={classes.card}>
-        <CardHeader className={classes.cardHeader}
+      <Card 
+        onMouseOver={toggleRaised} 
+        onMouseOut={toggleRaised} 
+        raised={raised} 
+        style={{height: '250px'}}
+        >
+        
+        <CardHeader className={classes.cardHeaderColor}
           title="Add Expense" 
-          />
+          titleTypographyProps={{variant:'subtitle1'}}
+        />
          
         <CardContent>
           <Grid container spacing={1}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                   <TextField
                     id="nombreGasto"
                     label="Gasto"
@@ -68,7 +78,7 @@ const AgregarGasto = (props) =>{
                     onChange={(event)=>{setGasto({...gasto, name: event.target.value})}}
                   />
               </Grid>
-              <Grid item  xs={12} sm={3}>
+              <Grid item  xs={12} sm={12}>
                   <TextField
                     id="montoGasto"
                     label="Monto"

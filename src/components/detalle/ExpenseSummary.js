@@ -28,9 +28,10 @@ const ExpenseSummary = (props) =>{
   },[props.gastos]);
 
   return(
-    <Card className={classes.card}>
-        <CardHeader title="Expense Summary" 
-          className={classes.cardHeader}/>          
+    <Card style={{height: '250px'}}>
+        <CardHeader title="Expense Summary" className={classes.cardHeaderColor}
+          titleTypographyProps={{variant:'subtitle1'}}
+        />          
           
           <CardContent>
             <Grid container spacing={1}>

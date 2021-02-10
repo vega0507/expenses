@@ -67,8 +67,9 @@ const Example = (props) =>{
   
   
   return (
-    <Card className={classes.card}>
-      <CardHeader className={classes.cardHeader}
+    <Card style={{height: '300px', width: '590px'}}>
+      <CardHeader className={classes.cardHeaderColor}
+        titleTypographyProps={{variant:'subtitle1'}}
         title={`Expenses summary in  ${expenseTypeSelected}`}
       />     
       <CardContent>
